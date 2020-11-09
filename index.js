@@ -27,7 +27,6 @@ function update() {
 
 function nouvelleGeneration(grille) {
     const nouvelleGeneration = grille.map(arr => [...arr]);
-
     for (let col = 0; col < grille.length; col++) {
         for (let row = 0; row < grille[col].length; row++) {
             const cell = grille[col][row];
