@@ -60,7 +60,7 @@ function nouvelleGeneration(grille) {
 function dessinerGrille(grille) {
     for (let col = 0; col < grille.length; col++) {
         for (let row = 0; row < grille[col].length; row++) {
-            const cell = grille[col][row];
+            var cell = grille[col][row];
             ctx.beginPath();
             ctx.rect(col * resolution, row * resolution, resolution, resolution);
             ctx.fillStyle = cell ? 'black' : 'white';

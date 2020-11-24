@@ -10,11 +10,9 @@ const LIGNES = canvas.height / resolution;
 
 //Fonction qui permet de creer un tableau a deux dimensions
 function creerTableau2d() {
-    var tableau = new Array(COLONNES);
-    for(var i = 0; i < tableau.length; i++){
-        tableau[i] = new Array(LIGNES);
-    }
-    return tableau;
+    return new Array(COLONNES).fill(null)
+        .map(() => new Array(LIGNES).fill(null)
+            .map(() => new Pixel()));
 }
 
 function remplirGrille(grille){
@@ -23,11 +21,11 @@ function remplirGrille(grille){
             grille[i][j] = new Pixel();
         }
     }
+return grille;
 }
 
 //Creation de la grille
 let grille = creerTableau2d();
-grille = remplirGrille(grille);
 requestAnimationFrame(update);
 
 function update() {
@@ -46,8 +44,8 @@ function copieTabbleay(tableauBase, tableauCopie){
 }
 
 function nouvelleGeneration(grille) {
-    const nouvelleGeneration = creerTableau2d();
-    nouvelleGeneration = remplirGrille(grille, nouvelleGeneration);
+    let nouvelleGeneration = creerTableau2d();
+    nouvelleGeneration = copieTabbleay(grille, nouvelleGeneration);
     for (let col = 0; col < grille.length; col++) {
         for (let row = 0; row < grille[col].length; row++) {
             const cell = grille[col][row].alive;
@@ -60,7 +58,7 @@ function nouvelleGeneration(grille) {
                     const x_cell = col + i;
                     const y_cell = row + j;
                     if (x_cell >= 0 && y_cell >= 0 && x_cell < COLONNES && y_cell < LIGNES) {
-                        const currentNeighbour = grille[col + i][row + j].alive;
+                        let currentNeighbour = grille[col + i][row + j].alive;
                         nombreVoisin += currentNeighbour;
                     }
                 }

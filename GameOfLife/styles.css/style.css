@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    background-color: rgb(27, 27, 27);
+}
+
+p{
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    color: #ddd; 
+}
+main{
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divPrincipalText{
+    display: flex;
+    padding: 10px;
+    margin: auto;
+    width: 50%;
+    height: 100%;
+}
+
+.divPrincipalText p{
+    text-align: center;
+}
+
+.topnavCenter {
+    display: flex;
+    padding: 10px;
+    margin: auto;
+    width: 100%;
+    background-color: #333;
+}
+
+.topnavCenter a{
+    padding: 10px;
+    margin: auto;
+    font-size: 20px;
+    text-decoration: none;
+    color: #f2f2f2;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}
+
+.topnavCenter a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnavCenter a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
