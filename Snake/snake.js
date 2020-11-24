@@ -46,8 +46,7 @@ function main(currentTime){
     dessinerGrille(testTableau);
     nourriture.Spawn();
     snake.update();
-    snake.show();
-    
+    snake.show();;
     if(nourriture.x === snake.body[snake.body.length -1].x && nourriture.y === snake.body[snake.body.length -1].y){
         snake.body.push({x: nourriture.x, y:nourriture.y});
         nourriture.SetCoord();
@@ -155,28 +154,31 @@ function Snake(){
 }
 
 function VerifierMort(){
-    if(snake.x < 0){
+    if(snake.body[snake.body.length -1].x < 0){
         console.log("Gauche");
         return false;
     }
-    else if(snake.x > COLONNES * resolution -50){
+    else if(snake.body[snake.body.length -1].x > COLONNES * resolution -50){
         console.log("Droite");
         return false;
     }
-    else if(snake.y < 0){
+    else if(snake.body[snake.body.length -1].y < 0){
         console.log("Haut");
         return false;
     }
-    else if(snake.y > LIGNES * resolution -50){
+    else if(snake.body[snake.body.length -1].y > LIGNES * resolution -50){
         console.log("Bas");
         return false;
     }
 }
 
 function Reset(){
-    snake.x = 50;
-    snake.y = 50;
-    snake.xSpeed = 0;
+    snake.body = [
+        {x: 50 , y:50},
+        {x: 100, y:50},
+        {x: 150, y:50}
+    ]
+    snake.xSpeed = resolution;
     snake.ySpeed = 0;
     score = 0;
 }
