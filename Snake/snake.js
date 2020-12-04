@@ -13,16 +13,10 @@ const LIGNES = canvas.height / resolution;
 let lastRenderTime = 0;
 
 
-function creerTableau2d() {
-    return new Array(COLONNES).fill(null)
-        .map(() => new Array(LIGNES).fill(null)
-            .map(() => null));
-}
-
+//On instencie les objets "snake" et "nourriture"
 var snake = new Snake();
 var nourriture = new Nourriture();
-var testTableau = creerTableau2d();
-dessinerGrille(testTableau);
+
 let score = snake.body.length;
 nourriture.SetCoord();
 nourriture.Spawn();
@@ -42,16 +36,19 @@ function main(currentTime){
         Reset();
     }
 
+    //Verifier si la tete du serpent est sur la pomme
+    if(nourriture.x === snake.body[snake.body.length -1].x && nourriture.y === snake.body[snake.body.length -1].y){
+        let xTampon = nourriture.x;
+        let yTampon = nourriture.y;
+        nourriture.SetCoord();
+        snake.body.push({x: xTampon, y: yTampon});
+        nourriture.Spawn();
+    }
     lastRenderTime = currentTime
-    dessinerGrille(testTableau);
+    ClearScreen();
     nourriture.Spawn();
     snake.update();
     snake.show();;
-    if(nourriture.x === snake.body[snake.body.length -1].x && nourriture.y === snake.body[snake.body.length -1].y){
-        snake.body.push({x: nourriture.x, y:nourriture.y});
-        nourriture.SetCoord();
-        nourriture.Spawn();
-    }
 };
 
 //Controle du snake (fleches directionnelles)
@@ -81,27 +78,14 @@ function keydown(e){
   }
 }
 
-//Fonction qui va dessiner la grille
-function dessinerGrille(grille) {
-    for (let col = 0; col < grille.length; col++) {
-        for (let row = 0; row < grille[col].length; row++) {
-            ctx.beginPath();
-            ctx.fillStyle = BG_COLOR;
-            ctx.rect(col * resolution, row * resolution, resolution, resolution);
-            ctx.fill();
-            //ctx.stroke();
-        }
-    }
-}
-
 //Objet "Nourriture"
 function Nourriture(){
     this.x = 0;
     this.y = 0;
 
     this.SetCoord = function(){
-        this.x = Math.floor(Math.random() * (COLONNES - 0 +1)) + 0;
-        this.y = Math.floor(Math.random() * (LIGNES - 0 +1)) + 0;
+        this.x = Math.floor(Math.random() * ((COLONNES - 1) - 0 +1)) + 0;
+        this.y = Math.floor(Math.random() * ((LIGNES - 1) - 0 +1)) + 0;
         this.x *= resolution;
         this.y *= resolution;
         for(var i = 0; i < snake.body.length; i++ ){
@@ -109,7 +93,6 @@ function Nourriture(){
                 return this.SetCoord();
             }
         }
-        
     }
     
     this.Spawn = function(){
@@ -122,14 +105,12 @@ function Nourriture(){
 
 //Objet "snake"
 function Snake(){
-    this.x = 50;
-    this.y = 50;
     this.xSpeed = resolution;
     this.ySpeed = 0;
     this.body = [
-        {x: 50 , y:50},
-        {x: 100, y:50},
-        {x: 150, y:50}
+        {x: 50 , y:50}, //0
+        {x: 100, y:50}, //1
+        {x: 150, y:50}  //2
     ]
 
     // Fonction membre qui modifie la position du "snake"
@@ -153,6 +134,7 @@ function Snake(){
     }
 }
 
+//Fonction qui va detecter les collisions avec les murs et avec le serpent lui-meme
 function VerifierMort(){
     if(snake.body[snake.body.length -1].x < 0){
         console.log("Gauche");
@@ -170,8 +152,15 @@ function VerifierMort(){
         console.log("Bas");
         return false;
     }
+
+    for(var i = 0; i < snake.body.length -1; i++){
+        if(snake.body[snake.body.length -1].x === snake.body[i].x && snake.body[snake.body.length -1].y === snake.body[i].y){
+            return false;
+        }
+    }
 }
 
+//Fonction qui va reset la position initial du serpent et redefinir les coordonnees de la nourriture
 function Reset(){
     snake.body = [
         {x: 50 , y:50},
@@ -181,4 +170,13 @@ function Reset(){
     snake.xSpeed = resolution;
     snake.ySpeed = 0;
     score = 0;
+    nourriture.SetCoord();
+}
+
+//Fonction qui va remettre a zero le canvas
+function ClearScreen(){
+    ctx.beginPath();
+    ctx.fillStyle = "white";
+    ctx.rect(0, 0, canvas.width, canvas.height);
+    ctx.fill();
 }

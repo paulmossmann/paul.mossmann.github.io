@@ -1,28 +1,28 @@
-#gameScreen{
-    border: 1px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    display: block
-}
-
-h1{
-    text-align: center;
-    color: white;
-}
-
-button{
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block
-}
-
-body{
+body {
     margin: 0;
     background-color: rgb(27, 27, 27);
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: hidden;
+}
+
+p{
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    color: #ddd; 
+}
+main{
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divPrincipalText{
+    display: flex;
+    padding: 10px;
+    margin: auto;
+    width: 50%;
+    height: 100%;
+}
+
+.divPrincipalText p{
+    text-align: center;
 }
 
 .topnavCenter {
@@ -51,3 +51,11 @@ body{
     background-color: #4CAF50;
     color: white;
 }
+
+#gameScreen{
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    display: block
+}
+

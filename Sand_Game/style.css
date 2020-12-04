@@ -1,28 +1,30 @@
-body {
-    margin: 0;
-    background-color: rgb(27, 27, 27);
-}
-
-p{
-    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-    color: #ddd; 
-}
-main{
-    width: 700px;
+#gameScreen{
+    border: 1px solid black;
     margin-left: auto;
     margin-right: auto;
+    display: block
 }
 
-.divPrincipalText{
-    display: flex;
-    padding: 10px;
-    margin: auto;
-    width: 50%;
-    height: 100%;
-}
-
-.divPrincipalText p{
+h1{
     text-align: center;
+    color: white;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+button{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block
+}
+
+body{
+    margin: 0;
+    background-color: rgb(27, 27, 27);
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .topnavCenter {
@@ -47,8 +49,7 @@ main{
     color: black;
   }
   
-  .topnavCenter a.active {
+.topnavCenter a.active {
     background-color: #4CAF50;
     color: white;
-  }
-
+}
