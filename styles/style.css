@@ -12,6 +12,18 @@ main{
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
+    height: 100%;
+}
+
+h1{
+    text-align: center;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    color: #ddd;
+}
+
+.thLink{
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .divPrincipalText{
@@ -22,7 +34,7 @@ main{
 }
 
 .divPrincipalText p{
-    text-align: center;
+    text-align: justify;
 }
 
 .topnavCenter {
@@ -88,4 +100,11 @@ th, td{
 .imageContener{
     width: 200px;
     height: 120px;
+}
+
+.tagLangage{
+    color: #333;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    padding: 6px;
 }
