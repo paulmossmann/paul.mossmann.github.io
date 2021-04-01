@@ -5,20 +5,20 @@ body {
 
 p{
     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-    color: #ddd; 
+    color: #ddd;
 }
 main{
-    width: 700px;
+    width: 80%;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .divPrincipalText{
-    display: flex;
     padding: 10px;
     margin: auto;
-    width: 50%;
-    height: 100%;
+    width: 100%;
+    height: 50%;
 }
 
 .divPrincipalText p{
@@ -27,21 +27,26 @@ main{
 
 .topnavCenter {
     display: flex;
-    padding: 10px;
-    margin: auto;
     width: 100%;
+    height: 80px;
     background-color: #333;
 }
 
 .topnavCenter a{
-    padding: 10px;
+    padding-left: auto;
+    padding-right: auto;
     margin: auto;
-    font-size: 20px;
+    width: auto;
+    font-size: 22px;
     text-decoration: none;
     color: #f2f2f2;
     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 }
 
+a, a:hover, a:visited, a:active {
+    color: inherit;
+    text-decoration: none;
+   }
 .topnavCenter a:hover {
     background-color: #ddd;
     color: black;
@@ -59,3 +64,28 @@ main{
     display: block
 }
 
+.divProjetLink{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 50px;
+    margin-right: 20px;
+    width: auto;
+    height: 50%;
+}
+
+th, td{
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    color: #ddd;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.imageLink{
+    width: 100%;
+    height: auto;
+}
+
+.imageContener{
+    width: 200px;
+    height: 120px;
+}
