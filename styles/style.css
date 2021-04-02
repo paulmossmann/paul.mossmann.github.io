@@ -21,6 +21,11 @@ h1{
     color: #ddd;
 }
 
+h2{
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    color: #ddd;
+}
+
 .thLink{
     font-weight: bold;
     font-size: 20px;
@@ -55,7 +60,7 @@ h1{
     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 }
 
-a, a:hover, a:visited, a:active {
+.linkProjet, .linkProjet:hover, .linkProjet:visited, .linkProjet:active {
     color: inherit;
     text-decoration: none;
    }
@@ -107,4 +112,25 @@ th, td{
     background-color: antiquewhite;
     border-radius: 20px;
     padding: 6px;
+}
+
+.contenerText{
+    position: relative;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.textBlock{
+    line-height: 1.6;
+}
+
+.imageFront{
+    width: 50%;
+    height: 40%;
+    background-color: white;
+}
+
+li{
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    color: #ddd;
 }
